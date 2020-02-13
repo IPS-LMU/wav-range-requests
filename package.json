@@ -1,0 +1,29 @@
+{
+  "name": "wav-range-requests",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/wav-range-requests.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start:dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "comlink-loader": "^2.0.0",
+    "random-int": "^2.0.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1",
+    "worker-loader": "^2.0.0"
+  },
+  "dependencies": {
+    "comlink": "^4.0.2",
+    "lodash": "^4.17.15"
+  }
+}
