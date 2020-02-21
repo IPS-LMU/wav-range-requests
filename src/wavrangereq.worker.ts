@@ -102,7 +102,6 @@ export class WavRangeReq {
       throw new Error('Wav read error: ChunkID not RIFF but ' + ChunkID);
     }
   
-  
     // ChunkSize
     curBinIdx = 4;
     curBufferView = new Uint32Array(buf, curBinIdx, 1);
