@@ -4,7 +4,6 @@ async function init(){
   const wavUrl = new URL("http://localhost:9000/please_call_stella.wav");
   // construct class
   const wavrangereq = await new WavRangeReq();
-  
   // using setter for now
   await wavrangereq.setURL(wavUrl.href);
   // get info about the wav file (most importantly )
@@ -12,7 +11,7 @@ async function init(){
   console.log("fileInfo:");
   console.log(fileInfo);
   
-  let wavRangeObj = await wavrangereq.getRange(44100, 441000);
+  let wavRangeObj = await wavrangereq.getRange(100, 44100);
   console.log("wavRangeObj");
   console.log(wavRangeObj);
   
@@ -21,11 +20,11 @@ async function init(){
     wavRangeObj.numberOfChannels,
     wavRangeObj.length,
     wavRangeObj.sampleRate
-  );
-  
+    );
+    
   // test decode (this has to be done on the main thread)
   let audioBuffer: AudioBuffer = await offlineCtx.decodeAudioData(wavRangeObj.buffer);
-  console.log(audioBuffer);
+  console.log(audioBuffer.getChannelData(0));
   
   
   // test append to audio element
@@ -33,12 +32,14 @@ async function init(){
   const blob: Blob = new Blob([wavRangeObj.buffer], { type: "audio/wav" });
   const url = window.URL.createObjectURL(blob);
   console.log(url);
-  // const audioElement: HTMLAudioElement | null = <HTMLAudioElement>document.getElementById("audioel"); 
+  const audioElement: HTMLAudioElement | null = <HTMLAudioElement>document.getElementById("audioel"); 
+  console.log(audioElement);
   // audioElement.src = url;
-
+  
 }
 
 init();
+console.log("here")
 
 export function numToString(num: number): string {
   return(num.toString());
