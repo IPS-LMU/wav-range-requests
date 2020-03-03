@@ -1,7 +1,7 @@
 import { WavRangeReq } from './wavrangereq.worker';
 
 async function init(){
-  const wavUrl = new URL("http://localhost:9000/please_call_stella.wav");
+  const wavUrl = new URL("http://localhost:9001/please_call_stella.wav");
   // construct class
   const wavrangereq = await new WavRangeReq();
   // using setter for now
